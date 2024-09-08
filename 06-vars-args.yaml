@@ -1,7 +1,6 @@
-# variables from command line arguments
 - name: variables to print
   hosts: web
   tasks:
   - name: print the information
     ansible.builtin.debug:
-      msg: "Hello {{name}}, Good {{greeting}}"
+      msg: "Hello {{NAME}}, Good {{GREETING}}"
