@@ -6,3 +6,9 @@
     ansible.builtin.package:  #heterongenous module that can work for all distributors.we can give dnf or apt...etc based on distributor
       name: nginx
       state: present
+
+  - name: install nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
