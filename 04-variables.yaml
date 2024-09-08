@@ -10,6 +10,6 @@
 
   - name: print the information again
     vars: # task level variable overrides play level
-    course: DevOps
+      course: DevOps
     ansible.builtin.debug:
       msg: "Hi, I am {{name}} and I am learning {{course}}"
