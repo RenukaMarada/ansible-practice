@@ -1,9 +1,15 @@
 - name: Using variables
   hosts: web
-  vars: 
+  vars: # play level variables
     name: Renuka
     course: ansible
   tasks:
   - name: print the information
+    ansible.builtin.debug:
+      msg: "Hi, I am {{name}} and I am learning {{course}}"
+
+  - name: print the information again
+    vars: # task level variable overrides play level
+    course: DevOps
     ansible.builtin.debug:
       msg: "Hi, I am {{name}} and I am learning {{course}}"
