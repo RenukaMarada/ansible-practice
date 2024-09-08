@@ -1,0 +1,9 @@
+- name: Using variables
+  host: web
+  vars: 
+    name: Renuka
+    course: ansible
+  tasks:
+  - name: print the information
+    ansible.builtin.debug:
+    msg: "Hi, I am {{name}} and I am learning {{course}}"
