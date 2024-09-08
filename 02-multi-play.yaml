@@ -13,4 +13,4 @@
   tasks:
   - name: creating second playbook
     ansible.builtin.debug:
-    msg: "second playbook"
+      msg: "second playbook"
