@@ -1,5 +1,5 @@
 - name: Using variables
-  host: web
+  hosts: web
   vars: 
     name: Renuka
     course: ansible
