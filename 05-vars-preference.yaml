@@ -1,13 +1,21 @@
 - name: variables to print
   hosts: web
-  
+  vars:
+    name: Renu
+    course: "DevOps with AWS from PLAY level"
+  vars_files:
+  - vars.yaml
+  vars_prompt:
+  - course: course
+    prompt: Please enter the course name
+    private: false # not confidential
   tasks:
   - name: print the information
     vars:
-      name: Renu
-      #course: "DevOps with AWS from TASK level"
+      name: renu
+      #COURSE: "DevOps with AWS from TASK level"
     ansible.builtin.debug:
-      msg: "Hi, I am learning {{course}}"
+      msg: "Hi, I am learning {{COURSE}}"
 
 #1. command line/args
 #2. Task level
