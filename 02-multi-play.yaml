@@ -3,3 +3,7 @@
   tasks:
   - name: print default message
     ansible.builtin.debug:
+  
+  - name: print custom message
+    ansible.builtin.module:
+      msg: "Hello everyone"
