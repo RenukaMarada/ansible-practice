@@ -11,7 +11,7 @@
     - Terraform
     - AWS
     - K8
-    liveclass: true #boolean
+    live: true #boolean
     tools: #map/dictionary
       ci: jenkins # string
       cm: ansible
