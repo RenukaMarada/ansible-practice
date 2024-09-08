@@ -15,6 +15,7 @@
       msg: "Hi, I am {{name}} and I am learning {{course}}"
 
 #----------------------------------------------------------------
+# Creating variables in vars.yaml and accessing here
 - name: Using variables from vars.yaml file
   hosts: web
   vars_files:
@@ -23,5 +24,42 @@
   - name: print the information
     ansible.builtin.debug:
       msg: "Hi, I am {{name}} and I am learning {{course}}"
+
+#-------------------------------------------------------------------
+# Accepting input from user
+- name: Accept input from prompt
+  hosts: web
+  vars_prompt:
+  - name: name
+    prompt: Please enter your name
+    private: false # making not confidential, by default its confidential 
+  - name: course
+    prompt: Please enter the course name
+    private: false # not confidential
+  tasks:
+  - name: print the course information
+    ansible.builtin.debug:
+      msg: "Hi, I am {{name}} and I am learning {{course}}"
+
+#---------------------------------------------------------------------
+# variables from inventory
+
+- name: variables from inventory
+  hosts: web
+  tasks:
+  - name: print the information
+    ansible.builtin.debug:
+      msg: "Hi, I am {{name}} and I am learning {{course}}"
+
+#----------------------------------------------------------------------
+# variables from command line arguments
+- name: variables to print
+  hosts: web
+  tasks:
+  - name: print the information
+    ansible.builtin.debug:
+      msg: "Hello {{NAME}}, Good {{GREETING}}"
+
+
 
 
