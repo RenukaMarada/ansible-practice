@@ -5,5 +5,5 @@
     ansible.builtin.debug:
   
   - name: print custom message
-    ansible.builtin.module:
+    ansible.builtin.debug:
       msg: "Hello everyone"
