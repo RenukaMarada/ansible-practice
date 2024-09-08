@@ -1,64 +1,64 @@
-- name: Using variables
-  hosts: web
-  vars: # play level variables
-    name: Renuka
-    course: DevOps
-  tasks:
-  - name: print the information
-    ansible.builtin.debug:
-      msg: "Hi, I am {{name}} and I am learning {{course}}"
+# - name: Using variables
+#   hosts: web
+#   vars: # play level variables
+#     name: Renuka
+#     course: DevOps
+#   tasks:
+#   - name: print the information
+#     ansible.builtin.debug:
+#       msg: "Hi, I am {{name}} and I am learning {{course}}"
 
-  - name: print the information again
-    vars: # task level variable overrides play level
-      course: Ansible
-    ansible.builtin.debug:
-      msg: "Hi, I am {{name}} and I am learning {{course}}"
+#   - name: print the information again
+#     vars: # task level variable overrides play level
+#       course: Ansible
+#     ansible.builtin.debug:
+#       msg: "Hi, I am {{name}} and I am learning {{course}}"
 
 #----------------------------------------------------------------
 # Creating variables in vars.yaml and accessing here
-- name: Using variables from vars.yaml file
-  hosts: web
-  vars_files:
-  - vars.yaml
-  tasks:
-  - name: print the information
-    ansible.builtin.debug:
-      msg: "Hi, I am {{name}} and I am learning {{course}}"
+# - name: Using variables from vars.yaml file
+#   hosts: web
+#   vars_files:
+#   - vars.yaml
+#   tasks:
+#   - name: print the information
+#     ansible.builtin.debug:
+#       msg: "Hi, I am {{name}} and I am learning {{course}}"
 
 #-------------------------------------------------------------------
 # Accepting input from user
-- name: Accept input from prompt
-  hosts: web
-  vars_prompt:
-  - name: name
-    prompt: Please enter your name
-    private: false # making not confidential, by default its confidential 
-  - name: course
-    prompt: Please enter the course name
-    private: false # not confidential
-  tasks:
-  - name: print the course information
-    ansible.builtin.debug:
-      msg: "Hi, I am {{name}} and I am learning {{course}}"
+# - name: Accept input from prompt
+#   hosts: web
+#   vars_prompt:
+#   - name: name
+#     prompt: Please enter your name
+#     private: false # making not confidential, by default its confidential 
+#   - name: course
+#     prompt: Please enter the course name
+#     private: false # not confidential
+#   tasks:
+#   - name: print the course information
+#     ansible.builtin.debug:
+#       msg: "Hi, I am {{name}} and I am learning {{course}}"
 
 #---------------------------------------------------------------------
 # variables from inventory
 
-- name: variables from inventory
-  hosts: web
-  tasks:
-  - name: print the information
-    ansible.builtin.debug:
-      msg: "Hi, I am {{name}} and I am learning {{course}}"
-
-#----------------------------------------------------------------------
-# variables from command line arguments
-# - name: variables to print
+# - name: variables from inventory
 #   hosts: web
 #   tasks:
 #   - name: print the information
 #     ansible.builtin.debug:
-#       msg: "Hello {{name}}, Good {{greeting}}"
+#       msg: "Hi, I am {{name}} and I am learning {{course}}"
+
+#----------------------------------------------------------------------
+# variables from command line arguments
+- name: variables to print
+  hosts: web
+  tasks:
+  - name: print the information
+    ansible.builtin.debug:
+      msg: "Hello {{name}}, Good {{greeting}}"
 
 
 
