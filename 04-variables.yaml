@@ -17,6 +17,8 @@
 #----------------------------------------------------------------
 - name: Using variables from vars.yaml file
   hosts: web
+  vars_files:
+  - vars.yaml
   tasks:
   - name: print the information
     ansible.builtin.debug:
