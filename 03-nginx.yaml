@@ -1,7 +1,8 @@
 - name: Install nginx
   hosts: web
+  become: yes #take sudo access
   tasks: 
   - name: install nginx
-    ansible.builtin.package:
+    ansible.builtin.package:  #heterongenous module that can work for all distributors.we can give dnf or apt...etc based on distributor
       name: nginx
       state: present
