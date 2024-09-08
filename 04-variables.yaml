@@ -51,6 +51,14 @@
     ansible.builtin.debug:
       msg: "Hi, I am {{name}} and I am learning {{course}}"
 
+#---------------------------------------------------------------------
+# Accepting variables from command line 
+- name: variables to print
+  hosts: web
+  tasks:
+  - name: print the information
+    ansible.builtin.debug:
+      msg: "Hello {{NAME}}, Good {{GREETING}}"
 
 
 
