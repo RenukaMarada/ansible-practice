@@ -7,3 +7,10 @@
   - name: print custom message
     ansible.builtin.debug:
       msg: "Hello everyone"
+
+- name: multiple playbook
+  hosts: web
+  tasks:
+  - name: creating second playbook
+    ansible.builtin.debug:
+    msg: "second playbook"
